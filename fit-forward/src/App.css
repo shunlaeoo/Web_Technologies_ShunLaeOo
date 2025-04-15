@@ -1,0 +1,139 @@
+@import 'tailwindcss';
+
+body, html, #root {
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  font-family: 'Montserrat', Arial, sans-serif;
+}
+
+.btn-primary:hover {
+  background-color: #ff7eb3;
+}
+
+button:hover,
+button:active, 
+button:focus, 
+button:focus-visible {
+  outline: none!important;
+  border: none!important;
+}
+
+.primary {
+  color: #E6195C;
+  font-weight: 600;
+}
+
+a.primary:hover {
+  color: #E6195C!important;
+  text-decoration: underline;
+}
+
+.logout {
+  border: 1px solid rgb(230, 230, 230);
+  background-color: white;
+  color: #E6195C;
+  font-weight: 600;
+}
+
+.logout:hover,
+.logout:active,
+.logout:focus {
+  border: 1px solid rgb(230, 230, 230)!important;
+  background-color: rgb(233, 233, 248);
+  color: black;
+}
+
+.btn-primary {
+  background-color: #E6195C;
+}
+
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:focus {
+  border-color: #ff758c;
+}
+
+.hero-section {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+}
+
+.hero-section.home {
+  background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1500&q=80') center/cover no-repeat;
+}
+
+.hero-section.login {
+  background: url('image/4113.jpg') center/cover no-repeat;
+}
+
+.hero-section::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.3);
+  z-index: 1;
+}
+
+.header {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 13px 45px 13px 45px;
+  background-color: white;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+.get-started {
+  background: linear-gradient(90deg, #ff758c, #ff7eb3);
+  color: #fff;
+  border: none;
+  border-radius: 24px;
+  padding: 15px 30px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: background 0.2s;
+}
+
+.get-started:hover,
+.get-started:active,
+.get-started:focus {
+  background: linear-gradient(90deg, #ff7eb3, #ff758c);
+  color: white;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-content h1 {
+  color: #fff;
+  font-size: 4vw;
+  font-weight: 900;
+  text-align: center;
+  line-height: 1.1;
+  letter-spacing: 2px;
+  margin: 0;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+}
