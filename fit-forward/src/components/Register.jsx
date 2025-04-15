@@ -1,9 +1,14 @@
+import { toast } from 'react-toastify';
 import { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
 
 function Register() {
+
+    const { login } = useAuth();
     const navigate = useNavigate();
+    
     const [form, setForm] = useState({
         name: '',
         email: '',
@@ -23,12 +28,30 @@ function Register() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
+            // Register user
             await axios.post('http://127.0.0.1:8000/api/register', form, {
-                withCredentials: true,
+              withCredentials: true,
             });
-            navigate('/login');
-        } catch (err) {
+        
+            // Auto login after register
+            const res = await axios.post('http://127.0.0.1:8000/api/login', {
+              email: form.email,
+              password: form.password,
+            }, {
+              withCredentials: true,
+            });
+        
+            // Save token and authenticate
+            const token = res.data.access_token;
+            localStorage.setItem('token', token);
+            login(); // call login() from AuthContext
+
+            toast.success('Login successful! 🎉');
+            navigate('/home', { state: { success: 'Registration successful!' } });
+        
+          } catch (err) {
             setError('Registration failed. Please check your inputs.');
+            toast.error('Registration failed. 🚫');
             console.error(err);
         }
     };
@@ -129,8 +152,6 @@ function Register() {
                         <button type="submit" className="btn-primary w-full bg-red-500 text-white font-semibold py-2 px-4 rounded hover:bg-red-600 transition duration-200">
                             Register
                         </button>
-
-                        {error && <p className="text-red-500 text-center">{error}</p>}
 
                         <p className="font-semibold text-center text-sm">
                             Already have an account?{' '}

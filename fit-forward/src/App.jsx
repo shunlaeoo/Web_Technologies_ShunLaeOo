@@ -3,15 +3,18 @@ import './App.css';
 import Header from './components/Header';
 import Login from './components/LoginPage';
 import Register from './components/Register';
+import Profile from './components/Profile';
 import Recommendations from './Recommendations';
 import { useAuth, AuthProvider } from './context/AuthContext';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Home() {
   return (
     <div className="hero-section home">
       <Header />
       <div className="hero-content p-10">
-        <h1 className="text-4xl font-bold leading-tight">
+        <h1 className="text-4xl font-bold">
           FROM SETTING<br />
           GOALS TO<br />
           BREAKING BARRIERS
@@ -25,31 +28,40 @@ function AppRoutes() {
   const { isAuthenticated } = useAuth();
 
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
+    <>
+      <Routes>
+        <Route path="/" element={<Home />} />
 
-      {/* Redirect if already authenticated */}
-      <Route
-        path="/login"
-        element={
-          isAuthenticated ? <Navigate to="/home" replace /> : <Login />
-        }
-      />
-      <Route
-        path="/register"
-        element={
-          isAuthenticated ? <Navigate to="/home" replace /> : <Register />
-        }
-      />
+        {/* Redirect if already authenticated */}
+        <Route
+          path="/login"
+          element={
+            isAuthenticated ? <Navigate to="/home" replace /> : <Login />
+          }
+        />
+        <Route
+          path="/register"
+          element={
+            isAuthenticated ? <Navigate to="/home" replace /> : <Register />
+          }
+        />
 
-      {/* Only allow /home if authenticated */}
-      <Route
-        path="/home"
-        element={
-          isAuthenticated ? <Recommendations /> : <Navigate to="/login" replace />
-        }
-      />
-    </Routes>
+        {/* Only allow /home if authenticated */}
+        <Route
+          path="/home"
+          element={
+            isAuthenticated ? <Recommendations /> : <Navigate to="/login" replace />
+          }
+        />
+        <Route
+          path="/profile"
+          element={
+            isAuthenticated ? <Profile /> : <Navigate to="/login" replace />
+          }
+        />
+      </Routes>
+      <ToastContainer position="bottom-right" autoClose={2000} />
+    </>
   );
 }
 

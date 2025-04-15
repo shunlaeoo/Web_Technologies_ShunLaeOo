@@ -1,3 +1,4 @@
+import { toast } from 'react-toastify';
 import { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
@@ -28,11 +29,13 @@ function LoginPage() {
   
         const token = res.data.access_token;
         localStorage.setItem('token', token);
-  
         login();
+
+        toast.success('Login successful! 🎉');
         navigate('/home'); // redirect after login
       } catch (err) {
         setError('Invalid email or password');
+        toast.error('Invalid email or password.');
       }
     };
 
@@ -68,8 +71,6 @@ function LoginPage() {
                         >
                             Login
                         </button>
-
-                        {error && <p className="text-red-500 text-center text-sm">{error}</p>}
 
                         <p className="font-semibold text-center text-sm">
                             Don't have an account?{' '}

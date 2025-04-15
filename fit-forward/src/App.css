@@ -4,11 +4,19 @@ body, html, #root {
   width: 100%;
   height: 100vh;
   margin: 0;
-  font-family: 'Montserrat', Arial, sans-serif;
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+ol {
+  list-style-type: block;
 }
 
 .btn-primary:hover {
   background-color: #ff7eb3;
+}
+
+.leading-tight {
+  color: #feeef7!important;
 }
 
 button:hover,
@@ -71,6 +79,11 @@ a.primary:hover {
   background: url('image/4113.jpg') center/cover no-repeat;
 }
 
+.hero-section.recom {
+  min-height: 95vh!important;
+  background: url('image/cardio.jpg') center/cover no-repeat;
+}
+
 .hero-section::after {
   content: '';
   position: absolute;
@@ -85,7 +98,7 @@ a.primary:hover {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 13px 45px 13px 45px;
+  padding: 12px 45px 12px 45px;
   background-color: white;
 }
 
@@ -129,11 +142,27 @@ a.primary:hover {
 
 .hero-content h1 {
   color: #fff;
-  font-size: 4vw;
   font-weight: 900;
   text-align: center;
   line-height: 1.1;
   letter-spacing: 2px;
   margin: 0;
   text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+}
+
+.view, .complete {
+  border-color: rgb(232, 231, 231);
+  font-size: small;
+  font-weight: bold;
+}
+
+.view:hover, 
+.complete:hover,
+.view:active, 
+.complete:active,
+.view:focus, 
+.complete:focus {
+  background-color: #E6195C;
+  border-color: #E6195C;
+  color: #fff;
 }
