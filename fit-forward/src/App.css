@@ -11,6 +11,10 @@ ol {
   list-style-type: block;
 }
 
+.nut ol li {
+  padding: 5px 0;
+}
+
 .btn-primary:hover {
   background-color: #ff7eb3;
 }
@@ -72,7 +76,7 @@ a.primary:hover {
 }
 
 .hero-section.home {
-  background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1500&q=80') center/cover no-repeat;
+  background: url('https://images.stockcake.com/public/c/a/5/ca512402-24f9-4f02-b773-7a29d10746d4_large/sunset-yoga-practice-stockcake.jpg') center/cover no-repeat;
 }
 
 .hero-section.login {
@@ -153,7 +157,7 @@ a.primary:hover {
 .view, .complete {
   border-color: rgb(232, 231, 231);
   font-size: small;
-  font-weight: bold;
+  font-weight: 700;
 }
 
 .view:hover, 
@@ -165,4 +169,166 @@ a.primary:hover {
   background-color: #E6195C;
   border-color: #E6195C;
   color: #fff;
+}
+
+.completed {
+  background-color: #EDFDF3;
+  color: #8EC2A2;
+  font-size: small;
+  font-weight: 700;
+  cursor: default ;
+}
+
+.fixed {
+  background: rgba(0,0,0,0.5);
+}
+
+.app-header {
+  margin-bottom: 30px;
+}
+
+.app-header h1 {
+  font-size: 28px;
+}
+
+.dashboard-card {
+  background-color: white;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.fitness-app .card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.fitness-app .card-header h2 {
+  font-size: 16px;
+  font-weight: 500;
+  color: #000;
+}
+
+.fitness-app .card-content h3 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.streak-message, .workout-schedule {
+  color: #666;
+  font-size: 14px;
+}
+
+.progress-bar {
+  height: 8px;
+  background-color: #f0f0f0;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-top: 10px;
+}
+
+.progress {
+  height: 100%;
+  background-color: #F2416D;
+  border-radius: 4px;
+}
+
+.section {
+  border-radius: 0.5rem;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.section-header h2 {
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+}
+
+.heart-icon, .trophy-icon, .calendar-icon {
+  margin-right: 8px;
+}
+
+.time-period, .achievement-count {
+  font-size: 14px;
+  font-weight: 500;
+  color: #666;
+}
+
+.chart-container {
+  background-color: white;
+  overflow: hidden;
+}
+
+.achievements-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 15px;
+}
+
+.achievement-card {
+  background-color: white;
+  border-radius: var(--border-radius);
+  padding: 15px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.2s;
+}
+
+.dashboard-card:hover,
+.achievement-card:hover {
+  transform: translateY(-5px);
+}
+
+.achievement-icon {
+  font-size: 24px;
+  margin-bottom: 10px;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffebf2;
+  border-radius: 50%;
+  color: var(--primary-color);
+}
+
+.achievement-card h3 {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.achievement-card p {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.status-badge {
+  font-size: 12px;
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+
+.status-badge.unlocked {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.status-badge.locked {
+  background-color: #e0e0e0;
+  color: #666;
+}
+
+.achievement-card.locked {
+  opacity: 0.7;
 }

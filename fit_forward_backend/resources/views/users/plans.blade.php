@@ -23,15 +23,22 @@
 
           <!-- Exercise Item -->
         @foreach ($exercises as $exercise)
-          <div class="card-custom">
+          <div class="card-custom p-3">
             <div class="d-flex justify-content-between align-items-center mb-3">
                 <h6 class="text-danger fw-bold mb-0">{{ $exercise->exercise->name }}</h6>
                 <span class="badge-md times px-3 py-1">
                     {{ $exercise->sets }} × {{ $exercise->reps ? $exercise->reps : ($exercise->duration ? $exercise->duration . 's' : '') }}
                 </span>
             </div>
-            <h6 class="fw-bold">Instructions</h6>
-            {!! $exercise->exercise->instructions !!}
+            <div class="d-flex justify-content-between align-items-center mb-2">
+              <div>
+                <h6 class="fw-bold">Instructions</h6>
+                {!! $exercise->exercise->instructions !!}
+              </div>
+              <img src="{{ asset('storage/' . $exercise->exercise->image) }}" 
+                class="img-fluid w-50" 
+                alt="{{ $exercise->exercise->name }}" />
+            </div>
           </div>
         @endforeach
         </div>

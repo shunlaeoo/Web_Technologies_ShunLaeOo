@@ -1,7 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container my-5">
+<div class="container mb-5">
+    <h2 class="text-center my-3 fw-semibold">Welcome to 
+        <span style="color: #E61950;">FIT-FORWARD</span>
+    </h2>
+    <h3 class="text-center my-3 fw-semibold">Admin Dashboard</h3>
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card bg-white rounded-3">

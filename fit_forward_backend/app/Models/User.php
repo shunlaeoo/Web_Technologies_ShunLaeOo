@@ -1,13 +1,14 @@
 <?php
 
 namespace App\Models;
-
+use Illuminate\Notifications\Notifiable;
+use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class User extends Model
 {
-    use HasFactory;
+    use HasApiTokens, HasFactory, Notifiable;
 
     protected $fillable = [
         'name',
@@ -33,4 +34,9 @@ class User extends Model
     protected $casts = [
         'password' => 'hashed',
     ];
+
+    public function completedWorkouts()
+    {
+        return $this->hasMany(UserWorkout::class)->where('completed', true);
+    }
 }

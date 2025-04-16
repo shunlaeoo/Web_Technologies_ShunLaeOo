@@ -27,6 +27,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::middleware(['auth'])->group(function () {
     Route::get('users', [UserController::class, 'index'])->name('users.index');
     Route::get('users/plans/{id}', [UserController::class, 'plans'])->name('users.plans');
+    Route::get('users/logs/{id}', [UserController::class, 'logs'])->name('users.logs');
 
     Route::resource('bmi_category', BmiCategoryController::class);
     Route::resource('exercises', ExerciseController::class);

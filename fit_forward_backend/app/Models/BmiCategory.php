@@ -10,4 +10,5 @@ class BmiCategory extends Model
     use HasFactory;
 
     protected $fillable = [ 'name', 'min', 'max' ];
+    
 }

@@ -19,7 +19,8 @@
                     <th>Weight (kg)</th>
                     <th>BMI</th>
                     <th>Activity Level</th>
-                    <th></th>
+                    <th>Workout & Nutrition Plans</th>
+                    <th>Workout Logs</th>
                 </tr>
             </thead>
             <tbody>
@@ -35,13 +36,17 @@
                     <td>{{ $user->bmi }}</td>
                     <td>
                         @php
-                            $levels = ['Sedentary', 'Lightly Active', 'Moderately Active', 'Very Active', 'Super Active'];
+                            $levels = ['Sedentary', 'Lightly Active', 'Moderately Active', 'Very Active', 'Extra Active'];
                         @endphp
                         {{ $levels[$user->activity_level - 1] ?? 'N/A' }}
                     </td>
                     <td>
                         <a href="{{ route('users.plans', $user->id) }}" 
-                            class="btn btn-primary">Workout and Nutrition Plans</a>
+                            class="btn btn-primary">Plans</a>
+                    </td>
+                    <td>
+                        <a href="{{ route('users.logs', $user->id) }}" 
+                            class="btn btn-primary">Logs</a>
                     </td>
                 </tr>
                 @endforeach

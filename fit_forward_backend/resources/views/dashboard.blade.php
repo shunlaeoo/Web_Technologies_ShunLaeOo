@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="dashboard container my-4">
-        <h2 class="fw-bold mb-4 pb-3">Admin Dashboard</h2>
+        <h2 class="fw-bold mb-4 py-1">Admin Dashboard</h2>
 
         {{-- 📊 Stat Cards --}}
         <div class="row mb-4">
@@ -50,6 +50,7 @@
                     <table class="table table-bordered table-striped mb-0">
                         <thead class="table-light">
                             <tr>
+                                <th>No</th>
                                 <th>Name</th>
                                 <th>Email</th>
                                 <th>BMI</th>
@@ -57,8 +58,9 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($recentUsers as $user)
+                            @foreach ($recentUsers as $index=>$user)
                                 <tr>
+                                    <td>{{ $index + 1 }}</td>
                                     <td>{{ $user->name }}</td>
                                     <td>{{ $user->email }}</td>
                                     <td>{{ $user->bmi }}</td>

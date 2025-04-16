@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\BmiCategory;
 use App\Models\MealPlan;
 use App\Models\User;
+use App\Models\UserWorkout;
 use App\Models\WorkoutPlan;
 use App\Models\WorkoutPlanExercise;
 use Illuminate\Http\Request;
@@ -47,7 +48,7 @@ class UserController extends Controller
 
     public function calculateDailyCalories($gender, $weight, $height, $age, $bmi, $activityLevel)
     {
-        $bmr = $gender === 'male'
+        $bmr = $gender == 1
             ? (10 * $weight) + (6.25 * $height) - (5 * $age) + 5
             : (10 * $weight) + (6.25 * $height) - (5 * $age) - 161;
 
@@ -76,6 +77,12 @@ class UserController extends Controller
         };
 
         return round($tdee * $goalMultiplier);
+    }
+
+    public function logs($id)
+    {
+        $logs = UserWorkout::where('user_id', $id)->get();
+        return view('users.logs', compact('logs'));
     }
 
     /**

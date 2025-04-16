@@ -1,7 +1,15 @@
+import { useRef } from "react";
 import Header from "./components/Header";
 import Plan from "./components/Plan";
+import Footer from "./components/Footer";
 
 function Recommendations() {
+    const recommendationsRef = useRef(null);
+
+    const handleGetStarted = () => {
+      recommendationsRef.current?.scrollIntoView({ behavior: 'smooth' });
+    };
+
     return(
         <>
             <div className="hero-section recom">
@@ -14,13 +22,14 @@ function Recommendations() {
                         <p className="text-lg text-center text-white pb-5">
                             Stay fit and healthy with our guided exercises 
                             designed to boost<br/>your endurance and energy levels.</p>
-                        <button className="mx-auto block btn-primary text-white px-5">
+                        <button onClick={handleGetStarted} className="mx-auto block btn-primary text-white px-5">
                             Get Started →
                         </button>
                     </div>
                 </div>
             </div>
-            <Plan />
+            <Plan recommendationsRef={recommendationsRef} />
+            <Footer/>
         </>
     );
 }
