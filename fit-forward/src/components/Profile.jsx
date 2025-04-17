@@ -32,7 +32,7 @@ function Profile() {
             <Header />
             <div className="fitness-app bg-gradient-to-br from-pink-50 to-purple-50 p-6 md:p-10">
                 <header className="app-header font-bold">
-                    <h1>Good afternoon, Shun Laè Oo! 
+                    <h1>{progressData?.greeting}, {progressData?.user_name}! 
                         <span className="emoji"> 😊</span>
                     </h1>
                 </header>

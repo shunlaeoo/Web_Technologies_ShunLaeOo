@@ -16,10 +16,12 @@ class APIController extends Controller
 {
     public function user() {
         $user = Auth()->user();
-        $completedWorkouts = $user->completedWorkouts()->pluck('exercise_id');
+        $completedToday = $user->completedWorkouts()
+            ->whereDate('created_at', Carbon::today())
+            ->pluck('exercise_id');
         return response()->json([
             'user' => $user,
-            'completedWorkouts' => $completedWorkouts
+            'completedWorkouts' => $completedToday
         ]);
     }
 
@@ -98,6 +100,18 @@ class APIController extends Controller
     {
         $user = Auth()->user();
 
+        $hour = Carbon::now()->hour;
+
+        if ($hour >= 5 && $hour < 12) {
+            $greeting = 'Good Morning';
+        } elseif ($hour >= 12 && $hour < 17) {
+            $greeting = 'Good Afternoon';
+        } elseif ($hour >= 17 && $hour < 21) {
+            $greeting = 'Good Evening';
+        } else {
+            $greeting = 'Good Night';
+        }
+
         $streak = $this->getUserStreak($user);
         $planName = $this->getUserPlanName($user);
         $goalProgress = $this->getDailyGoalProgress($user);
@@ -105,6 +119,8 @@ class APIController extends Controller
         $weeklyData = $this->getWeeklyWorkoutData($user);
 
         return response()->json([
+            'user_name' => $user->name,
+            'greeting' => $greeting,
             'streak' => $streak,
             'plan' => $planName,
             'goal' => $goalProgress,

@@ -11,16 +11,23 @@ import 'react-toastify/dist/ReactToastify.css';
 
 function Home() {
   return (
-    <div className="hero-section home">
-      <Header />
-      <div className="hero-content p-10">
-        <h1 className="text-4xl font-bold">
-          FROM SETTING<br />
-          GOALS TO<br />
-          BREAKING BARRIERS
-        </h1>
+    <>
+      <div className="hero-section home">
+        <Header />
+        <div className="hero-content p-10">
+          <h1 className="text-4xl font-bold">
+            FROM SETTING<br />
+            GOALS TO<br />
+            BREAKING BARRIERS
+          </h1>
+        </div>
       </div>
-    </div>
+      <footer className="bg-[#111]">
+      < div className="text-center text-pink-500 text-xs py-4">
+          &copy; 2025 FIT-FORWARD. All rights reserved.
+        </div>
+      </footer>
+    </>
   );
 }
 
