@@ -26,7 +26,7 @@
 
                 <div class="mb-3">
                     <label for="min" class="form-label">Min BMI</label>
-                    <input type="number" min="0" name="min" id="min" class="form-control" 
+                    <input type="number" min="0" step="0.1" name="min" id="min" class="form-control" 
                         placeholder="e.g. 18.5" value="{{ $bmi_category->min }}" required>
                     @error('min')
                         <span class="text-danger text-sm">{{ $message }}</span>
@@ -35,7 +35,7 @@
 
                 <div class="mb-3">
                     <label for="max" class="form-label">Max BMI</label>
-                    <input type="number" min="0" name="max" id="max" class="form-control" 
+                    <input type="number" min="0" step="0.1" name="max" id="max" class="form-control" 
                         placeholder="e.g. 24.9" value="{{ $bmi_category->max }}" required>
                     @error('max')
                         <span class="text-danger text-sm">{{ $message }}</span>
