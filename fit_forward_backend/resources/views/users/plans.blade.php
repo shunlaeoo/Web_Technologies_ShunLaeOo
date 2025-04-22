@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container my-4">
+<div class="container-fluid my-4">
     <div class="d-flex justify-content-between align-items-center mb-3">
         <h4 class="fw-bold">Recommendations for {{ $user->name }}</h4>
         <a href="{{ route('users.index') }}" class="btn btn-dark btn-sm">

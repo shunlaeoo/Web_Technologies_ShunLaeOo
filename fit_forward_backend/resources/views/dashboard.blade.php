@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="dashboard container my-4">
+    <div class="dashboard container-fluid my-4">
         <h2 class="fw-bold mb-4 py-1">Admin Dashboard</h2>
 
         {{-- 📊 Stat Cards --}}

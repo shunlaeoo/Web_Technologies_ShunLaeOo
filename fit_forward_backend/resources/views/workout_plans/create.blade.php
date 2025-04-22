@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container col-md-10 col-lg-8 mt-5">
+<div class="container-fluid col-md-10 col-lg-8 mt-5">
     <div class="card shadow">
         <div class="card-header d-flex justify-content-between align-items-center">
             <h5 class="mb-0">Add New Workout Plan</h5>
