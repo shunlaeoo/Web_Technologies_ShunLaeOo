@@ -29,7 +29,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach($categories as $index => $category)
+                @forelse($categories as $index => $category)
                     <tr>
                         <td>{{ $index + 1 }}</td>
                         <td>{{ $category->name }}</td>
@@ -58,21 +58,13 @@
                             </form>
                         </td>
                     </tr>
-                @endforeach
+                @empty
+                    <tr>
+                        <td colspan="5" class="text-center">No BMI categories found.</td>
+                    </tr>
+                @endforelse
             </tbody>
         </table>
     </div>
 </div>
 @endsection
-
-@push('scripts')
-<script>
-    $(document).ready(function () {
-        $('#bmiCategoryTable').DataTable({
-            responsive: true,
-            autoWidth: true,
-            order: [[0, 'desc']]
-        });
-    });
-</script>
-@endpush

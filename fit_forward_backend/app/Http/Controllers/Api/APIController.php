@@ -161,12 +161,12 @@ class APIController extends Controller
 
     private function getUserPlanName($user)
     {
-        $latestLog = UserWorkout::where('user_id', $user->id)->latest()->first();
-        if ($latestLog) {
-            $plan = WorkoutPlan::find($latestLog->workout_plan_id);
-            return $plan->title ?? null;
-        }
-        return null;
+        $bmiCategory = BmiCategory::where('min', '<=', $user->bmi)
+            ->where('max', '>=', $user->bmi)
+            ->first();
+        $plan = WorkoutPlan::where('bmi_category_id', $bmiCategory->id)->first();
+            
+        return $plan->title ?? 'Full Body Workout';
     }
 
     private function getDailyGoalProgress($user)

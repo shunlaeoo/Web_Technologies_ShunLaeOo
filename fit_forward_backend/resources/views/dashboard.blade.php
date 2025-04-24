@@ -8,7 +8,7 @@
         <div class="row mb-4">
             <div class="col-md-3 d-flex flex-column pe-md-2">
                 <div class="card gradient-1 text-muted flex-grow-1 box-shadow py-2 mb-3">
-                    <div class="card-body text-center">
+                    <div class="card-body text-dark text-center">
                         <h4 class="card-title fw-bold mb-3">👤 Total Users</h4>
                         <p class="card-text fs-4 fw-bold">{{ $totalUsers }}</p>
                     </div>
@@ -16,7 +16,7 @@
             </div>
             <div class="col-md-3 d-flex flex-column px-md-2">
                 <div class="card gradient-2 text-muted flex-grow-1 py-2 mb-3">
-                    <div class="card-body text-center">
+                    <div class="card-body text-dark text-center">
                         <h4 class="card-title fw-bold mb-3">📈 Avg BMI</h4>
                         <p class="card-text fs-4 fw-bold">{{ $averageBmi }}</p>
                     </div>
@@ -24,7 +24,7 @@
             </div>
             <div class="col-md-3 d-flex flex-column px-md-2">
                 <div class="card gradient-3 text-muted flex-grow-1 py-2 mb-3">
-                    <div class="card-body text-center">
+                    <div class="card-body text-dark text-center">
                         <h4 class="card-title fw-bold mb-3">🏋️ Workout Plans</h4>
                         <p class="card-text fs-4 fw-bold">{{ $workoutPlansCount }}</p>
                     </div>
@@ -32,7 +32,7 @@
             </div>
             <div class="col-md-3 d-flex flex-column ps-md-2">
                 <div class="card gradient-4 text-muted flex-grow-1 py-2 mb-3">
-                    <div class="card-body text-center">
+                    <div class="card-body text-dark text-center">
                         <h4 class="card-title fw-bold mb-3">🍱 Meal Plans</h4>
                         <p class="card-text fs-4 fw-bold">{{ $mealPlansCount }}</p>
                     </div>
@@ -58,7 +58,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($recentUsers as $index=>$user)
+                            @forelse ($recentUsers as $index=>$user)
                                 <tr>
                                     <td>{{ $index + 1 }}</td>
                                     <td>{{ $user->name }}</td>
@@ -66,7 +66,11 @@
                                     <td>{{ $user->bmi }}</td>
                                     <td>{{ $user->created_at->diffForHumans() }}</td>
                                 </tr>
-                            @endforeach
+                            @empty
+                                <tr>
+                                    <td colspan="5" class="text-center">No recent users found.</td>
+                                </tr>
+                            @endforelse
                         </tbody>
                     </table>
                 </div>

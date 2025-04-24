@@ -24,7 +24,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($users as $index=>$user)
+                @forelse ($users as $index=>$user)
                 <tr>
                     <td>{{ $index + 1 }}</td>
                     <td>{{ $user->name }}</td>
@@ -49,21 +49,13 @@
                             class="btn btn-primary">Logs</a>
                     </td>
                 </tr>
-                @endforeach
+                @empty
+                    <tr>
+                        <td colspan="5" class="text-center">No users found.</td>
+                    </tr>
+                @endforelse
             </tbody>
         </table>
     </div>
 </div>
 @endsection
-
-@push('scripts')
-<script>
-    $(document).ready(function () {
-        $('#UserTable').DataTable({
-            responsive: true,
-            autoWidth: true,
-            order: [[0, 'desc']]
-        });
-    });
-</script>
-@endpush

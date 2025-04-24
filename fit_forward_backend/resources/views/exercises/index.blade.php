@@ -30,7 +30,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach($exercises as $index => $exercise)
+                @forelse($exercises as $index => $exercise)
                     <tr>
                         <td>{{ $index + 1 }}</td>
                         <td>{{ $exercise->name }}</td>
@@ -66,21 +66,13 @@
                             </form>
                         </td>
                     </tr>
-                @endforeach
+                @empty
+                    <tr>
+                        <td colspan="6" class="text-center">No exercises found.</td>
+                    </tr>
+                @endforelse
             </tbody>
         </table>
     </div>
 </div>
 @endsection
-
-@push('scripts')
-<script>
-    $(document).ready(function () {
-        $('#ExerciseTable').DataTable({
-            responsive: true,
-            autoWidth: true,
-            order: [[0, 'desc']]
-        });
-    });
-</script>
-@endpush

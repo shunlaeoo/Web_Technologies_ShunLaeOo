@@ -22,10 +22,10 @@
             </h5>
 
           <!-- Exercise Item -->
-        @foreach ($exercises as $exercise)
+        @forelse ($exercises as $exercise)
           <div class="card-custom p-3">
             <div class="d-flex justify-content-between align-items-center mb-3">
-                <h6 class="text-danger fw-bold mb-0">{{ $exercise->exercise->name }}</h6>
+                <h5 class="text-danger fw-bold mb-0">{{ $exercise->exercise->name }}</h5>
                 <span class="badge-md times px-3 py-1">
                     {{ $exercise->sets }} × {{ $exercise->reps ? $exercise->reps : ($exercise->duration ? $exercise->duration . 's' : '') }}
                 </span>
@@ -40,7 +40,11 @@
                 alt="{{ $exercise->exercise->name }}" />
             </div>
           </div>
-        @endforeach
+        @empty
+          <div class="card-custom p-3">
+            <h5 class="text-danger fw-bold mb-0">No Exercises Assigned</h5>
+          </div>
+        @endforelse
         </div>
       </div>
 
@@ -57,26 +61,26 @@
           <div class="d-flex justify-content-between text-center mb-3">
             <div class="macro-box flex-fill me-2">
               <h6>Protein</h6>
-              <strong>{{ $meal_plan->protein }}%</strong>
+              <strong>{{ $meal_plan->protein ?? 0 }}%</strong>
             </div>
             <div class="macro-box flex-fill me-2">
               <h6>Carbs</h6>
-              <strong>{{ $meal_plan->carbs }}%</strong>
+              <strong>{{ $meal_plan->carbs ?? 0 }}%</strong>
             </div>
             <div class="macro-box flex-fill">
               <h6>Fats</h6>
-              <strong>{{ $meal_plan->fats }}%</strong>
+              <strong>{{ $meal_plan->fats ?? 0 }}%</strong>
             </div>
           </div>
 
           <div class="highlight-box py-4 my-4">
             <h6 class="text-dark fw-bold">Daily Calories Target</h6>
-            <h2 class="mb-0">{{ $daily_calories }} kcal</h2>
+            <h2 class="mb-0">{{ $daily_calories ?? 0 }} kcal</h2>
           </div>
 
           <div>
             <h6 class="fw-bold mb-3">Sample Meal Plan</h6>
-                {!! $meal_plan->description !!}
+                {!! $meal_plan->description ?? 'There is no sample meal plan.' !!}
           </div>
         </div>
       </div>

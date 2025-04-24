@@ -18,7 +18,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($logs as $index=>$log)
+                @forelse ($logs as $index=>$log)
                 <tr>
                     <td>{{ $index + 1 }}</td>
                     <td>{{ $log->user->name }}</td>
@@ -26,21 +26,13 @@
                     <td>{{ $log->exercise->name }}</td>
                     <td>{{ $log->created_at }}</td>
                 </tr>
-                @endforeach
+                @empty
+                    <tr>
+                        <td colspan="5" class="text-center">No users logs found.</td>
+                    </tr>
+                @endforelse
             </tbody>
         </table>
     </div>
 </div>
 @endsection
-
-@push('scripts')
-<script>
-    $(document).ready(function () {
-        $('#UserTable').DataTable({
-            responsive: true,
-            autoWidth: true,
-            order: [[0, 'desc']]
-        });
-    });
-</script>
-@endpush

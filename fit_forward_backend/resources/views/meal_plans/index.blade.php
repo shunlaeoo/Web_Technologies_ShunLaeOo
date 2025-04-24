@@ -31,7 +31,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach($meal_plan as $index => $category)
+                @forelse($meal_plan as $index => $category)
                     <tr>
                         <td>{{ $index + 1 }}</td>
                         <td>{{ $category->bmi_category->name }}</td>
@@ -62,21 +62,13 @@
                             </form>
                         </td>
                     </tr>
-                @endforeach
+                @empty
+                    <tr>
+                        <td colspan="7" class="text-center">No meal plans available.</td>
+                    </tr>
+                @endforelse
             </tbody>
         </table>
     </div>
 </div>
 @endsection
-
-@push('scripts')
-<script>
-    $(document).ready(function () {
-        $('#MealPlanTable').DataTable({
-            responsive: true,
-            autoWidth: true,
-            order: [[0, 'desc']]
-        });
-    });
-</script>
-@endpush

@@ -31,7 +31,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach($workout_plan_exercises as $index => $category)
+                @forelse($workout_plan_exercises as $index => $category)
                     <tr>
                         <td>{{ $index + 1 }}</td>
                         <td>{{ $category->workout_plan->title }}</td>
@@ -63,21 +63,13 @@
                             </form>
                         </td>
                     </tr>
-                @endforeach
+                @empty
+                    <tr>
+                        <td colspan="7" class="text-center">No workout plan exercises found.</td>
+                    </tr>
+                @endforelse
             </tbody>
         </table>
     </div>
 </div>
 @endsection
-
-@push('scripts')
-<script>
-    $(document).ready(function () {
-        $('#WorkoutPlanTable').DataTable({
-            responsive: true,
-            autoWidth: true,
-            order: [[0, 'desc']]
-        });
-    });
-</script>
-@endpush
