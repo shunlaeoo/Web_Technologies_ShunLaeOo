@@ -86,7 +86,7 @@ function Plan({ recommendationsRef }) {
           } catch (error) {
             console.error('Error fetching user:', error);
             toast.error('Unauthorized: please login again');
-            console.log(res.data);
+            // console.log(res.data); // Removed as 'res' is not defined in this scope
           }
         };
       
@@ -125,7 +125,7 @@ function Plan({ recommendationsRef }) {
         } catch (error) {
           console.error(error);
           toast.error('Failed to complete workout.');
-          setCompletedExercises(prev => prev.filter(id => id !== exerciseId));
+          setcompletedWorkouts(prev => prev.filter(id => id !== exerciseId));
         }
     };      
 

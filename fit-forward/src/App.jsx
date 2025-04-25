@@ -15,7 +15,7 @@ function Home() {
       <div className="hero-section home">
         <Header />
         <div className="hero-content p-10">
-          <h1 className="text-4xl font-bold">
+          <h1 className="font-bold">
             FROM SETTING<br />
             GOALS TO<br />
             BREAKING BARRIERS

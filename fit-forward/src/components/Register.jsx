@@ -20,7 +20,7 @@ function Register() {
         weight: '',
         activity_level: '',
     });
-    const [error, setError] = useState('');
+    // const [error, setError] = useState('');
 
     const handleChange = (e) => {
         setForm({ ...form, [e.target.name]: e.target.value });
@@ -68,9 +68,9 @@ function Register() {
                 <div className="hero-content px-5">
                     <div className="w-full max-w-2xl bg-white pt-6 pb-8 px-8 rounded-lg shadow-md">
                         <img className="w-25 mb-2 mx-auto block" src="/image/Logo21.png" alt="Fit Forward Logo" />
-                        <h2 className="text-2xl text-dark-600 font-bold mb-5 text-center">
+                        <h4 className="text-2xl text-dark-600 font-bold mb-5 text-center">
                             Register
-                        </h2>
+                        </h4>
                         {/* <h2 className="text-3xl primary text-center font-bold mb-6">FIT-FORWARD</h2> */}
 
                         <form onSubmit={handleSubmit} className="space-y-5">

@@ -67,7 +67,7 @@ a.primary:hover {
 }
 
 .hero-section {
-  min-height: 100vh;
+  min-height: 96vh;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -76,7 +76,7 @@ a.primary:hover {
 }
 
 .hero-section.home {
-  background: url('https://images.stockcake.com/public/c/a/5/ca512402-24f9-4f02-b773-7a29d10746d4_large/sunset-yoga-practice-stockcake.jpg') center/cover no-repeat;
+  background: url('https://images.stockcake.com/public/c/3/b/c3b4c0b3-5aec-423b-a8ef-848c5f5fdf07/forest-yoga-practice-stockcake.jpg') center/cover no-repeat;
 }
 
 .hero-section.login {
@@ -84,7 +84,7 @@ a.primary:hover {
 }
 
 .hero-section.recom {
-  min-height: 95vh!important;
+  min-height: 65vh;
   background: url('image/cardio.jpg') center/cover no-repeat;
 }
 
@@ -116,7 +116,6 @@ a.primary:hover {
 }
 
 .get-started {
-  background: linear-gradient(90deg, #ff758c, #ff7eb3);
   color: #fff;
   border: none;
   border-radius: 24px;
@@ -131,7 +130,6 @@ a.primary:hover {
 .get-started:hover,
 .get-started:active,
 .get-started:focus {
-  background: linear-gradient(90deg, #ff7eb3, #ff758c);
   color: white;
 }
 
@@ -145,9 +143,20 @@ a.primary:hover {
 }
 
 .hero-content h1 {
+  font-size: 8vh;
   color: #fff;
   font-weight: 900;
   text-align: center;
+  line-height: 1.1;
+  letter-spacing: 2px;
+  margin: 0;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+}
+
+.hero-content h2 {
+  font-size: 6vh;
+  color: #fff;
+  font-weight: 900;
   line-height: 1.1;
   letter-spacing: 2px;
   margin: 0;
@@ -196,6 +205,10 @@ a.primary:hover {
   padding: 20px;
   display: flex;
   flex-direction: column;
+}
+
+.fitness-app {
+  min-height: 80vh!important;
 }
 
 .fitness-app .card-header {

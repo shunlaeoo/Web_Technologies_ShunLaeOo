@@ -66,7 +66,8 @@ function Header() {
       ) : (
         <Link
           to="/login"
-          className="get-started bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded transition"
+          className="get-started bg-pink-500 bg-gradient-to-r from-[#F0B78F] to-[#E6195C] 
+            hover:bg-pink-600 transition-all duration-300 hover:scale-105 py-2 px-4 rounded transition"
         >
           GET STARTED →
         </Link>

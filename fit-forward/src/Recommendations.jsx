@@ -16,9 +16,9 @@ function Recommendations() {
                 <Header />
                 <div className="hero-content backdrop-blur-sm p-10">
                     <div>
-                        <h1 className="text-4xl font-bold leading-tight py-5">
+                        <h2 className="text-center font-bold leading-tight py-5">
                             Exercises
-                        </h1>
+                        </h2>
                         <p className="text-lg text-center text-white pb-5">
                             Stay fit and healthy with our guided exercises 
                             designed to boost<br/>your endurance and energy levels.</p>
