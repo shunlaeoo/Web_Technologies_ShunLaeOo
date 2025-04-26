@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BmiCategoryController;
 use App\Http\Controllers\ExerciseController;
 use App\Http\Controllers\HomeController;
@@ -29,6 +30,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('users/plans/{id}', [UserController::class, 'plans'])->name('users.plans');
     Route::get('users/logs/{id}', [UserController::class, 'logs'])->name('users.logs');
 
+    Route::resource('admin', AdminController::class);
     Route::resource('bmi_category', BmiCategoryController::class);
     Route::resource('exercises', ExerciseController::class);
     Route::resource('workout_plans', WorkoutPlanController::class);

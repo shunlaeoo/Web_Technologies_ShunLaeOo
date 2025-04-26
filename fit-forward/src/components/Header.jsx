@@ -21,7 +21,7 @@ function Header() {
       </div>
 
       {isAuthenticated ? (
-        <div className="flex flex-col sm:flex-row items-center gap-3">
+        <div className="flex items-center gap-3">
           <Link to="/profile">
             <button className="flex items-center logout gap-2 py-2 px-5 rounded transition">
               <svg 
@@ -40,7 +40,7 @@ function Header() {
               <span className="text-sm">Profile</span>
             </button>
           </Link>
-          
+        
           <button
             onClick={handleLogout}
             className="flex items-center logout gap-2 py-2 px-5 rounded transition"

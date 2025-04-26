@@ -84,7 +84,7 @@ a.primary:hover {
 }
 
 .hero-section.recom {
-  min-height: 65vh;
+  min-height: 75vh;
   background: url('image/cardio.jpg') center/cover no-repeat;
 }
 
@@ -154,7 +154,7 @@ a.primary:hover {
 }
 
 .hero-content h2 {
-  font-size: 6vh;
+  font-size: 7vh;
   color: #fff;
   font-weight: 900;
   line-height: 1.1;

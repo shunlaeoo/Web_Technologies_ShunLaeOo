@@ -21,8 +21,8 @@
             <li class="nav-item mb-2">
                 <!-- Toggle -->
                 <a class="nav-link d-flex justify-content-between align-items-center" data-bs-toggle="collapse"
-                    href="#bmiSubMenu" role="button" aria-expanded="{{ request()->segment(1) == 'bmi_category' ? 'true' : 'false' }}" 
-                    aria-controls="bmiSubMenu">
+                    href="#settingMenu" role="button" aria-expanded="{{ request()->segment(1) == 'bmi_category' ? 'true' : 'false' }}" 
+                    aria-controls="settingMenu">
                     <span>
                         <svg class="me-1 pb-1" width="14%" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                             fill="currentColor" viewBox="0 0 24 24">
@@ -37,7 +37,7 @@
                 </a>
             
                 <!-- Collapsible Sub-menu -->
-                <div class="collapse show" id="bmiSubMenu">
+                <div class="collapse show" id="settingMenu">
                     <ul class="nav flex-column ms-3 mt-1">
                         <li class="nav-item">
                             <a class="nav-link my-1 {{ request()->routeIs('bmi_category.index') ? 'active' : '' }}" href="{{ route('bmi_category.index') }}">
@@ -80,6 +80,38 @@
                     </svg>
                     Exercises
                 </a>
+            </li>
+
+            <li class="nav-item mb-2">
+                <!-- Toggle -->
+                <a class="nav-link d-flex justify-content-between align-items-center" data-bs-toggle="collapse"
+                    href="#bmiSubMenu" role="button" aria-expanded="{{ request()->segment(1) == 'bmi_category' ? 'true' : 'false' }}" 
+                    aria-controls="bmiSubMenu">
+                    <span>
+                        <svg class="me-1 pb-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                            <path fill-rule="evenodd" d="M9.586 2.586A2 2 0 0 1 11 2h2a2 2 0 0 1 2 2v.089l.473.196.063-.063a2.002 2.002 0 0 1 2.828 0l1.414 1.414a2 2 0 0 1 0 2.827l-.063.064.196.473H20a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2h-.089l-.196.473.063.063a2.002 2.002 0 0 1 0 2.828l-1.414 1.414a2 2 0 0 1-2.828 0l-.063-.063-.473.196V20a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2v-.089l-.473-.196-.063.063a2.002 2.002 0 0 1-2.828 0l-1.414-1.414a2 2 0 0 1 0-2.827l.063-.064L4.089 15H4a2 2 0 0 1-2-2v-2a2 2 0 0 1 2-2h.09l.195-.473-.063-.063a2 2 0 0 1 0-2.828l1.414-1.414a2 2 0 0 1 2.827 0l.064.063L9 4.089V4a2 2 0 0 1 .586-1.414ZM8 12a4 4 0 1 1 8 0 4 4 0 0 1-8 0Z" clip-rule="evenodd"/>
+                        </svg>                          
+                        Setting                   
+                    </span>
+                    <svg class="ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" 
+                        width="8%" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 9-7 7-7-7"/>
+                    </svg>                     
+                </a>
+            
+                <!-- Collapsible Sub-menu -->
+                <div class="collapse show" id="bmiSubMenu">
+                    <ul class="nav flex-column ms-3 mt-1">
+                        <li class="nav-item">
+                            <a class="nav-link my-1 {{ request()->segment(1) == 'admin' ? 'active' : '' }}" href="{{ route('admin.index') }}">
+                                <svg class="me-1 pb-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                                    <path fill-rule="evenodd" d="M17 10v1.126c.367.095.714.24 1.032.428l.796-.797 1.415 1.415-.797.796c.188.318.333.665.428 1.032H21v2h-1.126c-.095.367-.24.714-.428 1.032l.797.796-1.415 1.415-.796-.797a3.979 3.979 0 0 1-1.032.428V20h-2v-1.126a3.977 3.977 0 0 1-1.032-.428l-.796.797-1.415-1.415.797-.796A3.975 3.975 0 0 1 12.126 16H11v-2h1.126c.095-.367.24-.714.428-1.032l-.797-.796 1.415-1.415.796.797A3.977 3.977 0 0 1 15 11.126V10h2Zm.406 3.578.016.016c.354.358.574.85.578 1.392v.028a2 2 0 0 1-3.409 1.406l-.01-.012a2 2 0 0 1 2.826-2.83ZM5 8a4 4 0 1 1 7.938.703 7.029 7.029 0 0 0-3.235 3.235A4 4 0 0 1 5 8Zm4.29 5H7a4 4 0 0 0-4 4v1a2 2 0 0 0 2 2h6.101A6.979 6.979 0 0 1 9 15c0-.695.101-1.366.29-2Z" clip-rule="evenodd"/>
+                                </svg>                                                                    
+                                Admins
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </li>
         </ul>
     </div>

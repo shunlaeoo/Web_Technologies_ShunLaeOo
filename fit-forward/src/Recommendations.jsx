@@ -16,7 +16,7 @@ function Recommendations() {
                 <Header />
                 <div className="hero-content backdrop-blur-sm p-10">
                     <div>
-                        <h2 className="text-center font-bold leading-tight py-5">
+                        <h2 className="text-center font-bold leading-tight pb-5">
                             Exercises
                         </h2>
                         <p className="text-lg text-center text-white pb-5">

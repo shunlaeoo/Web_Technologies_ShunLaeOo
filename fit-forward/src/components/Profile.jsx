@@ -1,5 +1,5 @@
 import Header from './Header';
-import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, CartesianGrid } from 'recharts';
+import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import Footer from './Footer';
@@ -98,20 +98,36 @@ function Profile() {
                         <div className="chart-container rounded-b-lg py-8 pe-10 w-full h-[300px]">
                             <ResponsiveContainer width="100%" height="100%">
                                 <LineChart data={progressData?.weeklyData}>
-                                    <CartesianGrid strokeDasharray="3 3" />
-                                    <XAxis dataKey="day" />
-                                    <YAxis domain={[0, 4]} ticks={[0, 1, 2, 3, 4, 5]} />
-                                    <Line 
-                                        type="monotone" 
-                                        dataKey="workouts" 
-                                        stroke="#ff4d79" 
-                                        strokeWidth={2} 
-                                        dot={{ r: 4 }} 
-                                        activeDot={{ r: 6 }}
-                                    />
+                                <CartesianGrid strokeDasharray="3 3" />
+                                <XAxis dataKey="day" />
+                                <YAxis domain={[0, 4]} ticks={[0, 1, 2, 3, 4, 5]} />
+                                
+                                {/* Tooltip Component */}
+                                <Tooltip 
+                                    content={({ payload }) => {
+                                    if (payload && payload.length) {
+                                        return (
+                                        <div className="custom-tooltip bg-white p-2 rounded shadow-md">
+                                            <p>{`Day: ${payload[0].payload.day}`}</p>
+                                            <p>{`Workouts: ${payload[0].value}`}</p>
+                                        </div>
+                                        );
+                                    }
+                                    return null;
+                                    }} 
+                                />
+                                
+                                <Line 
+                                    type="monotone" 
+                                    dataKey="workouts" 
+                                    stroke="#ff4d79" 
+                                    strokeWidth={2} 
+                                    dot={{ r: 4 }} 
+                                    activeDot={{ r: 6 }} 
+                                />
                                 </LineChart>
                             </ResponsiveContainer>
-                        </div>
+                            </div>
                     </div>
                 </div>
             </div>
