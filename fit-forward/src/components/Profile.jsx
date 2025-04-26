@@ -102,13 +102,15 @@ function Profile() {
                                 <XAxis dataKey="day" />
                                 <YAxis domain={[0, 4]} ticks={[0, 1, 2, 3, 4, 5]} />
                                 
-                                {/* Tooltip Component */}
                                 <Tooltip 
                                     content={({ payload }) => {
                                     if (payload && payload.length) {
+                                        const date = new Date(payload[0].payload.date);
+                                        const formattedDate = `${date.getDate().toString().padStart(2, '0')}/${(date.getMonth() + 1).toString().padStart(2, '0')}/${date.getFullYear()}`;
+                                        
                                         return (
                                         <div className="custom-tooltip bg-white p-2 rounded shadow-md">
-                                            <p>{`Day: ${payload[0].payload.day}`}</p>
+                                            <p>{`Day: ${formattedDate}`}</p>
                                             <p>{`Workouts: ${payload[0].value}`}</p>
                                         </div>
                                         );
@@ -127,7 +129,7 @@ function Profile() {
                                 />
                                 </LineChart>
                             </ResponsiveContainer>
-                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

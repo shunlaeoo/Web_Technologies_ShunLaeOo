@@ -221,7 +221,8 @@ class APIController extends Controller
         return $last7Days->map(function ($day) use ($logs) {
             $log = $logs->firstWhere('date', $day['date']);
             return [
-                'day' => $day['day'],
+                'date' => $day['date'],
+                'day'  => $day['day'],
                 'workouts' => $log ? $log->workouts : 0
             ];
         });
