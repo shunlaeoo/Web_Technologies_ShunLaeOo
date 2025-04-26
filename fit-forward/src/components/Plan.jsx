@@ -259,7 +259,7 @@ function Plan({ recommendationsRef }) {
                         <div className="text-gray-500 font-semibold mb-3">Daily Calories Target</div>
                         <div className="text-pink-600 font-bold text-3xl">{dailyCalories} kcal</div>
                     </div>
-                    <div className="bg-pink-50 rounded-lg shawdow-sm p-6 m-6">
+                    <div className="bg-pink-50 rounded-lg shadow-sm p-6 m-6">
                         <div className="font-semibold mb-3">Sample Meal Plan</div>
                         <p className='nut px-6' dangerouslySetInnerHTML={{ __html: mealPlan.description }} />
                     </div>

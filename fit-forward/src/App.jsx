@@ -12,8 +12,8 @@ import 'react-toastify/dist/ReactToastify.css';
 function Home() {
   return (
     <>
+      <Header />
       <div className="hero-section home">
-        <Header />
         <div className="hero-content p-10">
           <h1 className="font-bold">
             FROM SETTING<br />

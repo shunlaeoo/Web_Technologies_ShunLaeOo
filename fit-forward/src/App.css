@@ -96,16 +96,6 @@ a.primary:hover {
   z-index: 1;
 }
 
-.header {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px 45px 12px 45px;
-  background-color: white;
-}
-
 .logo {
   display: flex;
   align-items: center;

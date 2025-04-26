@@ -13,7 +13,7 @@ function Header() {
   };
 
   return (
-    <header className="header flex flex-col md:flex-row justify-between items-center gap-4 px-6 py-4 bg-white shadow-md">
+    <header className="header sticky top-0 z-50 flex flex-col md:flex-row justify-between items-center gap-4 px-6 md:px-10 py-4 md:py-3 bg-white shadow-md">
       <div className="logo">
         <Link to="/home">
           <img src="/image/landscape.png" alt="Fit Forward Logo" />

@@ -3,7 +3,10 @@
 @section('content')
 <div class="container-fluid mt-4">
     <div class="d-flex justify-content-between align-items-center mb-3">
-        <h4 class="fw-bold">Users</h4>
+        <h4 class="fw-bold">Users Logs</h4>
+        <a href="{{ route('users.index') }}" class="btn btn-dark btn-sm">
+            Back to List
+        </a>
     </div>
 
     <div class="table-responsive">

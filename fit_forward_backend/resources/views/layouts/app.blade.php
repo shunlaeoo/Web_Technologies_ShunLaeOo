@@ -38,6 +38,11 @@
                 </main>
             </div>
         @endguest
+        <footer class="bg-black">
+            <div class="text-center text-white py-2">
+                &copy; 2025 FIT-FORWARD. All rights reserved.
+            </div>
+        </footer>
     </div>
 
     @yield('script')

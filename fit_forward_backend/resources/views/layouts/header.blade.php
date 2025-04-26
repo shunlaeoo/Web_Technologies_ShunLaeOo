@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+<nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm sticky-top">
     <div class="container-fluid px-4">
         <a class="navbar-brand" href="{{ url('/') }}">
             <img class="img-fluid" width="80%" src="{{ asset('image/landscape.png') }}">
