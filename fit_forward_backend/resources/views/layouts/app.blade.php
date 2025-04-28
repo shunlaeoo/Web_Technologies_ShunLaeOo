@@ -26,7 +26,7 @@
     <div id="app">
         @include('layouts.header')
         @guest
-            <main class="py-4">
+            <main class="py-4" style="min-height: 86vh;">
                 @yield('content')
             </main>
         @else
