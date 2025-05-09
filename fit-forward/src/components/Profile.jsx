@@ -3,26 +3,27 @@ import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, CartesianGrid, Tool
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import Footer from './Footer';
+import Achievements from './Achievements';
 
 function Profile() {
     const [progressData, setProgressData] = useState(null);
 
     useEffect(() => {
         const fetchProgressData = async () => {
-          const token = localStorage.getItem('token');
-      
-          try {
-            const res = await axios.get('http://127.0.0.1:8000/api/user_progress', {
-              headers: {
-                Authorization: `Bearer ${token}`,
-              },
-              withCredentials: true,
-            });
-      
-            setProgressData(res.data);
-          } catch (error) {
-            console.error('Error fetching progress data:', error);
-          }
+            const token = localStorage.getItem('token');
+        
+            try {
+                const res = await axios.get('http://127.0.0.1:8000/api/user_progress', {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+                withCredentials: true,
+                });
+        
+                setProgressData(res.data);
+            } catch (error) {
+                console.error('Error fetching progress data:', error);
+            }
         };
         fetchProgressData();
     }, []);
@@ -131,6 +132,13 @@ function Profile() {
                             </ResponsiveContainer>
                         </div>
                     </div>
+                </div>
+
+                <div className="mt-8">
+                    {/* Achievements Section */}
+                    {progressData?.achievements && (
+                        <Achievements unlockedAchievements={progressData.achievements} />
+                    )}
                 </div>
             </div>
             <Footer/>

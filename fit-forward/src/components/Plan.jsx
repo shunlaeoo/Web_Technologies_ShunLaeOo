@@ -120,12 +120,11 @@ function Plan({ recommendationsRef }) {
               withCredentials: true,
             }
           );
-      
           toast.success('Workout marked as complete!');
         } catch (error) {
-          console.error(error);
-          toast.error('Failed to complete workout.');
-          setcompletedWorkouts(prev => prev.filter(id => id !== exerciseId));
+            console.error(error);
+            toast.error('Failed to complete workout.');
+            setcompletedWorkouts(prev => prev.filter(id => id !== exerciseId));
         }
     };      
 
@@ -133,14 +132,14 @@ function Plan({ recommendationsRef }) {
         <div 
             ref={recommendationsRef}
             id="recommendation"
-            className="min-h-screen bg-gradient-to-br from-pink-50 to-purple-50 p-6 md:pb-10 md:pt-8 md:px-10">
+            className="bg-gradient-to-br from-pink-50 to-purple-50 p-6 md:pb-10 md:pt-8 md:px-10">
             <h2 className="text-3xl text-pink-600 font-bold mb-6">Recommendations</h2>
             <div className="flex flex-col lg:flex-row">        
                 {/* Workout Plan */}
                 <div className="w-full lg:w-1/2 bg-white rounded-xl shadow-md mr-0 md:mr-6 mb-6 lg:mb-0">
                     <div className="bg-gradient-to-br from-pink-100 to-purple-50 rounded-t-lg p-6">
                         <h2 className="text-xl font-semibold flex items-center mb-1">
-                            <span className="mr-1">
+                            <span className="mr-1 animate-bounce">
                                 <svg className="text-pink-600" 
                                     aria-hidden="true" 
                                     xmlns="http://www.w3.org/2000/svg" 
@@ -233,7 +232,7 @@ function Plan({ recommendationsRef }) {
                     <div className="bg-gradient-to-br from-pink-100 to-purple-50 rounded-t-lg p-6">
                         <h2 className="text-xl font-semibold flex items-center mb-1">
                             <span className="mr-1">
-                                <svg className="text-pink-600 me-2" xmlns="http://www.w3.org/2000/svg" width="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" data-lov-id="src/components/Profile.tsx:461:16" data-lov-name="Utensils" data-component-path="src/components/Profile.tsx" data-component-line="461" data-component-file="Profile.tsx" data-component-name="Utensils" data-component-content="%7B%22className%22%3A%22text-primary%20h-5%20w-5%22%7D">
+                                <svg className="text-pink-600 animate-bounce me-2" xmlns="http://www.w3.org/2000/svg" width="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" data-lov-id="src/components/Profile.tsx:461:16" data-lov-name="Utensils" data-component-path="src/components/Profile.tsx" data-component-line="461" data-component-file="Profile.tsx" data-component-name="Utensils" data-component-content="%7B%22className%22%3A%22text-primary%20h-5%20w-5%22%7D">
                                     <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"></path><path d="M7 2v20"></path><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"></path>
                                 </svg>
                             </span> 
