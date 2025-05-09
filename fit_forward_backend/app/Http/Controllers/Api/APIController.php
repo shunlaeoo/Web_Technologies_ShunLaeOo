@@ -33,10 +33,9 @@ class APIController extends Controller
                                 ->where('max', '>=', $user->bmi)
                                 ->first();
         $workoutPlans = WorkoutPlan::where('bmi_category_id', $bmiCategory->id)->get();
-        $exercises = WorkoutPlanExercise::whereIn(
-            'workout_plan_id',
-            $workoutPlans->pluck('id')
-        )->with('exercise')->get();
+        $exercises = WorkoutPlanExercise::whereIn('workout_plan_id', $workoutPlans->pluck('id'))
+                        ->with('exercise')
+                        ->get();
 
         $meal_plan = MealPlan::where('bmi_category_id', $bmiCategory->id)->first();
 
@@ -117,6 +116,7 @@ class APIController extends Controller
         $goalProgress = $this->getDailyGoalProgress($user);
         $progress = $this->calculateGoalProgress($goalProgress);
         $weeklyData = $this->getWeeklyWorkoutData($user);
+        $achievements = $this->getUserAchievements($user);
 
         return response()->json([
             'user_name' => $user->name,
@@ -125,7 +125,8 @@ class APIController extends Controller
             'plan' => $planName,
             'goal' => $goalProgress,
             'progress' => $progress,
-            'weeklyData' => $weeklyData
+            'weeklyData' => $weeklyData,
+            'achievements' => $achievements
         ]);
     }
 
@@ -136,28 +137,40 @@ class APIController extends Controller
             ->selectRaw('DATE(created_at) as date, workout_plan_id, COUNT(*) as completed_count')
             ->groupBy('date', 'workout_plan_id')
             ->get();
-
+    
         $groupedByDate = $logs->groupBy('date');
         $streak = 0;
         $today = Carbon::today();
-
-        while ($groupedByDate->has($today->toDateString())) {
-            $plansToday = $groupedByDate[$today->toDateString()];
-            $allCompleted = $plansToday->every(function ($log) {
+        $yesterday = Carbon::yesterday();
+    
+        $checkStreakDay = function ($date) use ($groupedByDate) {
+            $logsForDay = $groupedByDate->get($date->toDateString(), collect());
+    
+            if ($logsForDay->isEmpty()) return false;
+    
+            return $logsForDay->every(function ($log) {
                 $totalExercises = WorkoutPlanExercise::where('workout_plan_id', $log->workout_plan_id)->count();
                 return $totalExercises > 0 && $log->completed_count >= $totalExercises;
             });
-
-            if ($allCompleted) {
-                $streak++;
-                $today->subDay();
-            } else {
-                break;
-            }
+        };
+    
+        $isTodayComplete = $checkStreakDay($today);
+        $isYesterdayComplete = $checkStreakDay($yesterday);
+    
+        // Check from today backwards until streak breaks
+        $current = $today->copy();
+        while ($checkStreakDay($current)) {
+            $streak++;
+            $current->subDay();
         }
-
+    
+        // If today is not completed, but yesterday is streak = 1
+        if (!$isTodayComplete && $isYesterdayComplete) {
+            $streak = 1;
+        }
+    
         return $streak;
-    }
+    }    
 
     private function getUserPlanName($user)
     {
@@ -228,4 +241,33 @@ class APIController extends Controller
         });
     }
 
+    private function getUserAchievements($user)
+    {
+        $bmiCategory = BmiCategory::where('min', '<=', $user->bmi)
+            ->where('max', '>=', $user->bmi)
+            ->first();
+        $workout_plan_id = WorkoutPlan::where('bmi_category_id', $bmiCategory->id)->value('id');
+        
+        $totalWorkouts = UserWorkout::where('user_id', $user->id)->count();
+        $streak = $this->getUserStreak($user);
+        $requiredTypes = WorkoutPlanExercise::where('workout_plan_id', $workout_plan_id)
+                    ->pluck('exercise_id')
+                    ->unique()
+                    ->toArray();
+        $doneTypes = UserWorkout::where('user_id', $user->id)
+                    ->whereIn('exercise_id', $requiredTypes)
+                    ->pluck('exercise_id')
+                    ->unique()
+                    ->count();
+
+        $achievements = [];
+
+        if ($totalWorkouts >= 1) $achievements[] = 'first_workout';
+        if ($totalWorkouts >= 5) $achievements[] = 'workout_5';
+        if ($streak >= 3) $achievements[] = 'streak_3';
+        if ($doneTypes >= 3) $achievements[] = 'variety';
+        if ($totalWorkouts >= 10) $achievements[] = 'workout_10';
+
+        return $achievements;
+    }
 }
