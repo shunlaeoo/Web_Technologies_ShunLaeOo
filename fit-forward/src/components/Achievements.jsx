@@ -37,13 +37,13 @@ const achievements = [
   
     return (
       <div className="bg-white rounded-xl shadow-sm mb-10">
-        <div className="section-header bg-gradient-to-br from-pink-100 to-purple-50 py-4 px-6 rounded-t-lg flex justify-between items-center mb-4">
+        <div className="section-header bg-gradient-to-br from-pink-100 to-purple-50 py-4 px-6 rounded-t-lg flex justify-between items-center">
             <h2 className="text-2xl">
                 <span className="heart-icon text-2xl animate-bounce mt-2">🏆</span> Achievements
             </h2>
             <span className="time-period">{unlockedCount} of 5 unlocked</span>
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-4 p-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 p-6">
           {achievements.map((a, i) => {
             const isUnlocked = unlockedSet.has(a.unlockedKey);
             return (
