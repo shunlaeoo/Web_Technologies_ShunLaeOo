@@ -19,8 +19,11 @@
     <!-- Custom CSS -->
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
 
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
     <!-- Scripts -->
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    <!-- @vite(['resources/sass/app.scss', 'resources/js/app.js']) -->
 </head>
 <body>
     <div id="app">
@@ -46,6 +49,9 @@
     </div>
 
     @yield('script')
+
+    <!-- Bootstrap Bundle with Popper (for Bootstrap JS components like modals, tooltips, etc.) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
     <!-- CK Editor -->
     <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
