@@ -78,12 +78,12 @@ a.primary:hover {
 }
 
 .hero-section.login {
-  background: url('/Web_Technologies_ShunLaeOo/fit-forward/src/assets/image/4113.jpg') center/cover no-repeat;
+  background: url('/Web_Technologies_ShunLaeOo/image/4113.jpg') center/cover no-repeat;
 }
 
 .hero-section.recom {
   min-height: 75vh;
-  background: url('/Web_Technologies_ShunLaeOo/fit-forward/src/assets/image/cardio.jpg') center/cover no-repeat;
+  background: url('/Web_Technologies_ShunLaeOo/image/cardio.jpg') center/cover no-repeat;
 }
 
 .hero-section::after {

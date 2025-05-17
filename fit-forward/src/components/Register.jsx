@@ -1,7 +1,7 @@
 import { toast } from 'react-toastify';
 import { useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import Header from './Header';
 
@@ -163,7 +163,7 @@ function Register() {
 
                             <p className="font-semibold text-center text-sm">
                                 Already have an account?{' '}
-                                <a href="/login" className="primary font-bold">Login</a>
+                                <Link to="/login" className="primary font-bold">Login</Link>
                             </p>
                         </form>
                     </div>

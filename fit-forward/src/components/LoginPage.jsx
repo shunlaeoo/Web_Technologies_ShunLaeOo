@@ -1,7 +1,7 @@
 import { toast } from 'react-toastify';
 import { useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import Header from './Header'
 
@@ -77,9 +77,9 @@ function LoginPage() {
 
                             <p className="font-semibold text-center text-sm">
                                 Don't have an account?{' '}
-                                <a href="/register" className="primary">
+                                <Link to="/register" className="primary">
                                     Register
-                                </a>
+                                </Link>
                             </p>
                         </form>
                     </div>
