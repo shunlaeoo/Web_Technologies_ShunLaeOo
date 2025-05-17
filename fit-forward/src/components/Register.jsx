@@ -67,7 +67,7 @@ function Register() {
             <div className="hero-section login py-5">
                 <div className="hero-content px-5">
                     <div className="w-full max-w-2xl bg-white pt-6 pb-8 px-8 rounded-lg shadow-md">
-                        <img className="w-40 mb-2 mx-auto block" src="/image/Logo21.png" alt="Fit Forward Logo" />
+                        <img className="w-40 mb-2 mx-auto block" src="image/Logo21.png" alt="Fit Forward Logo" />
                         <h4 className="text-2xl text-dark-600 font-bold mb-5 text-center">
                             Register
                         </h4>

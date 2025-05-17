@@ -46,7 +46,7 @@ function LoginPage() {
             <div className="hero-section login">
                 <div className="hero-content px-5">
                     <div className="w-full max-w-lg bg-white pt-6 pb-8 px-8 rounded-lg shadow-md">
-                        <img className="w-40 mb-3 mx-auto block" src="/image/Logo21.png" alt="Fit Forward Logo" />
+                        <img className="w-40 mb-3 mx-auto block" src="image/Logo21.png" alt="Fit Forward Logo" />
                         <h4 className="text-2xl text-dark-600 font-bold mb-5 text-center">
                             Login
                         </h4>
