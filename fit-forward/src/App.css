@@ -1,5 +1,3 @@
-@import 'tailwindcss';
-
 body, html, #root {
   width: 100%;
   height: 100vh;
@@ -154,8 +152,8 @@ a.primary:hover {
 }
 
 .view, .complete {
-  border-color: rgb(232, 231, 231);
-  font-size: small;
+  border: 1px solid rgb(232, 231, 231);
+  font-size: 14px;
   font-weight: 700;
 }
 
@@ -166,16 +164,20 @@ a.primary:hover {
 .view:focus, 
 .complete:focus {
   background-color: #E6195C;
-  border-color: #E6195C;
+  border: 1px solid #E6195C;
   color: #fff;
 }
 
 .completed {
   background-color: #EDFDF3;
   color: #8EC2A2;
-  font-size: small;
+  font-size: 14px;
   font-weight: 700;
   cursor: default ;
+}
+
+.exercise-image {
+  width: 30%;
 }
 
 .fixed {

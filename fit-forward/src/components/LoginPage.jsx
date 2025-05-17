@@ -46,19 +46,19 @@ function LoginPage() {
             <div className="hero-section login">
                 <div className="hero-content px-5">
                     <div className="w-full max-w-lg bg-white pt-6 pb-8 px-8 rounded-lg shadow-md">
-                        <img className="w-25 mb-3 mx-auto block" src="/image/Logo21.png" alt="Fit Forward Logo" />
+                        <img className="w-40 mb-3 mx-auto block" src="/image/Logo21.png" alt="Fit Forward Logo" />
                         <h4 className="text-2xl text-dark-600 font-bold mb-5 text-center">
                             Login
                         </h4>
                         {/* <h2 className="text-3xl primary text-center font-bold mb-6">FIT-FORWARD</h2> */}
-                        <form onSubmit={handleSubmit} className="space-y-5">
+                        <form onSubmit={handleSubmit}>
                             <label className="text-dark-600 font-bold">Email</label>
                             <input
                                 name='email'
                                 type="email"
                                 placeholder="example@gmail.com"
                                 onChange={handleChange}
-                                className="w-full text-sm px-4 py-2 mt-1 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-red-300"
+                                className="w-full text-sm px-4 py-2 mt-2 mb-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-red-300"
                             />
                             <label className="text-dark-600 font-bold">Password</label>
                             <input
@@ -66,11 +66,11 @@ function LoginPage() {
                                 type="password"
                                 placeholder="Password"
                                 onChange={handleChange}
-                                className="w-full text-sm px-4 py-2 mt-1 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-red-300"
+                                className="w-full text-sm px-4 py-2 mt-2 mb-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-red-300"
                             />
                             <button
                                 type="submit"
-                                className="btn-primary w-full text-white focus:outline-none focus:border-red-300 font-semibold py-2 px-4 rounded transition duration-200"
+                                className="btn-primary w-full mt-2 mb-4 text-white focus:outline-none focus:border-red-300 font-semibold py-2 px-4 rounded transition duration-200"
                             >
                                 Login
                             </button>

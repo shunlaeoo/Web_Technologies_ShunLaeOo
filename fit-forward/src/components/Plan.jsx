@@ -158,7 +158,7 @@ function Plan({ recommendationsRef }) {
                             workoutPlan.map((item, idx) => (
                                 <div
                                     key={idx}
-                                    className="bg-white rounded-lg p-4 mb-4 shadow-sm"
+                                    className="bg-white rounded-lg p-4 mb-4 shadow-md"
                                 >
                                     <div className='flex flex-col sm:flex-row items-start sm:items-center justify-between mb-3'>
                                         <div className='flex items-center gap-5'>
@@ -171,7 +171,7 @@ function Plan({ recommendationsRef }) {
                                         </div>
                                         <div className="flex space-x-2 mt-4 sm:mt-0">
                                             <button onClick={() => handleViewClick(item.exercise?.name, item.exercise?.video_url)}
-                                                className="view flex rounded px-3 py-0 text-sm transition">
+                                                className="view flex rounded px-4 py-2 text-sm transition rounded-lg">
                                                 <svg aria-hidden="true" 
                                                     xmlns="http://www.w3.org/2000/svg" 
                                                     width="20" fill="none" viewBox="0 0 24 24">
@@ -184,7 +184,7 @@ function Plan({ recommendationsRef }) {
                                             <button
                                                 onClick={() => handleComplete(item.exercise.id, item.workout_plan_id)}
                                                 disabled={completedWorkouts.includes(item.exercise.id)}
-                                                className={`rounded px-3 py-0 text-sm transition flex items-center space-x-1
+                                                className={`rounded px-4 py-2 text-sm transition flex items-center space-x-1 rounded-lg
                                                     ${completedWorkouts.includes(item.exercise.id) ? 'completed' : 'complete'}`}
                                                 >
                                                 {completedWorkouts.includes(item.exercise.id) ? (
@@ -215,7 +215,7 @@ function Plan({ recommendationsRef }) {
                                             <img
                                                 src={`https://mi-linux.wlv.ac.uk/~2533234/Web_Technologies_ShunLaeOo/fit_forward_backend/public/storage/${item.exercise?.image}`}
                                                 alt={item.exercise?.name}
-                                                className="w-50"
+                                                className="exercise-image"
                                             />
                                         )}
                                     </div>
@@ -241,24 +241,24 @@ function Plan({ recommendationsRef }) {
                         <p className="text-sm text-gray-500">Personalized plan based on your profile</p>
                     </div>
                     <div className="flex justify-between gap-3 m-6">
-                        <div className="flex-1 text-center rounded-lg shadow-sm p-4">
+                        <div className="flex-1 text-center rounded-lg shadow-md p-4">
                             <div className="text-gray-500 font-semibold">Protein</div>
                             <div className="text-pink-600 font-bold text-2xl">{mealPlan.protein}%</div>
                         </div>
-                        <div className="flex-1 text-center rounded-lg shadow-sm p-4">
+                        <div className="flex-1 text-center rounded-lg shadow-md p-4">
                             <div className="text-gray-500 font-semibold">Carbs</div>
                             <div className="text-pink-600 font-bold text-2xl">{mealPlan.carbs}%</div>
                         </div>
-                        <div className="flex-1 text-center rounded-lg shadow-sm p-4">
+                        <div className="flex-1 text-center rounded-lg shadow-md p-4">
                             <div className="text-gray-500 font-semibold">Fats</div>
                             <div className="text-pink-600 font-bold text-2xl">{mealPlan.fats}%</div>
                         </div>
                     </div>
-                    <div className="bg-pink-50 rounded-lg shadow-sm p-6 m-6 text-center">
+                    <div className="bg-pink-50 rounded-lg shadow-md p-6 m-6 text-center">
                         <div className="text-gray-500 font-semibold mb-3">Daily Calories Target</div>
                         <div className="text-pink-600 font-bold text-3xl">{dailyCalories} kcal</div>
                     </div>
-                    <div className="bg-pink-50 rounded-lg shadow-sm p-6 m-6">
+                    <div className="bg-pink-50 rounded-lg shadow-md p-6 m-6">
                         <div className="font-semibold mb-3">Sample Meal Plan</div>
                         <p className='nut px-6' dangerouslySetInnerHTML={{ __html: mealPlan.description }} />
                     </div>
@@ -283,7 +283,7 @@ function Plan({ recommendationsRef }) {
                         </h2>
                         <button
                             onClick={closeModal}
-                            className="absolute top-3 right-3 text-gray-500 hover:text-red-600 text-xl font-bold"
+                            className="absolute top-3 right-3 text-gray-500 hover:text-red-600 text-4xl px-3 font-bold"
                         >
                             &times;
                         </button>

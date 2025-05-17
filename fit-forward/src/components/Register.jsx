@@ -67,13 +67,13 @@ function Register() {
             <div className="hero-section login py-5">
                 <div className="hero-content px-5">
                     <div className="w-full max-w-2xl bg-white pt-6 pb-8 px-8 rounded-lg shadow-md">
-                        <img className="w-25 mb-2 mx-auto block" src="/image/Logo21.png" alt="Fit Forward Logo" />
+                        <img className="w-40 mb-2 mx-auto block" src="/image/Logo21.png" alt="Fit Forward Logo" />
                         <h4 className="text-2xl text-dark-600 font-bold mb-5 text-center">
                             Register
                         </h4>
                         {/* <h2 className="text-3xl primary text-center font-bold mb-6">FIT-FORWARD</h2> */}
 
-                        <form onSubmit={handleSubmit} className="space-y-5">
+                        <form onSubmit={handleSubmit}>
                             <label className="text-dark-600 font-bold">Full Name</label>
                             <input name="name"
                                 type='text' 
@@ -148,7 +148,7 @@ function Register() {
                             <select name="activity_level" 
                                 value={form.activity_level}
                                 onChange={handleChange} 
-                                className="w-full text-sm px-4 py-2 mt-1 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-red-300">
+                                className="w-full text-sm px-4 py-2 my-1 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-red-300">
                                 <option value="" disabled>Activity Level</option>
                                 <option value="1">Sedentary (Little/No exercise)</option>
                                 <option value="2">Lightly active (1–3 days/week)</option>
@@ -157,7 +157,7 @@ function Register() {
                                 <option value="5">Extra active (Athlete level)</option>
                             </select>
 
-                            <button type="submit" className="btn-primary w-full bg-red-500 text-white font-semibold py-2 px-4 rounded hover:bg-red-600 transition duration-200">
+                            <button type="submit" className="btn-primary w-full bg-red-500 my-4 text-white font-semibold py-2 px-4 rounded hover:bg-red-600 transition duration-200">
                                 Register
                             </button>
 

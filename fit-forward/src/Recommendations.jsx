@@ -22,7 +22,7 @@ function Recommendations() {
                         <p className="text-lg text-center text-white pb-5">
                             Stay fit and healthy with our guided exercises 
                             designed to boost<br/>your endurance and energy levels.</p>
-                        <button onClick={handleGetStarted} className="mx-auto block btn-primary text-white px-5">
+                        <button onClick={handleGetStarted} className="mx-auto block btn-primary text-white text-xl font-bold px-8 py-3 rounded-full">
                             Get Started →
                         </button>
                     </div>
