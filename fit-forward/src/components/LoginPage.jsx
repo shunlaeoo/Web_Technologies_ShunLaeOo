@@ -24,7 +24,7 @@ function LoginPage() {
     const handleSubmit = async (e) => {
       e.preventDefault();
       try {
-        const res = await axios.post('http://127.0.0.1:8000/api/login', form, {
+        const res = await axios.post('https://mi-linux.wlv.ac.uk/~2533234/public/api/login', form, {
           withCredentials: true,
         });
   

@@ -13,7 +13,7 @@ function Profile() {
             const token = localStorage.getItem('token');
         
             try {
-                const res = await axios.get('http://127.0.0.1:8000/api/user_progress', {
+                const res = await axios.get('https://mi-linux.wlv.ac.uk/~2533234/public/api/user_progress', {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },

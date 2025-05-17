@@ -11,7 +11,7 @@ function Plan({ recommendationsRef }) {
         const fetchPlans = async () => {
             const loadingToast = toast.loading('Fetching your plan...');
             try {
-                const res = await axios.get('http://127.0.0.1:8000/api/plans', {
+                const res = await axios.get('https://mi-linux.wlv.ac.uk/~2533234/public/api/plans', {
                 withCredentials: true,
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('token')}`
@@ -72,7 +72,7 @@ function Plan({ recommendationsRef }) {
       
         const fetchUser = async () => {
           try {
-            const res = await axios.get('http://127.0.0.1:8000/api/user', {
+            const res = await axios.get('https://mi-linux.wlv.ac.uk/~2533234/public/api/user', {
               headers: {
                 Authorization: `Bearer ${token}`,
               },
@@ -106,7 +106,7 @@ function Plan({ recommendationsRef }) {
       
         try {
           await axios.post(
-            'http://127.0.0.1:8000/api/workout_complete',
+            'https://mi-linux.wlv.ac.uk/~2533234/public/api/workout_complete',
             {
               user_id: userId,
               exercise_id: exerciseId,
@@ -213,7 +213,7 @@ function Plan({ recommendationsRef }) {
                                         </div>
                                         {item.exercise?.image && (
                                             <img
-                                                src={`http://localhost:8000/storage/${item.exercise?.image}`}
+                                                src={`https://mi-linux.wlv.ac.uk/~2533234/Web_Technologies_ShunLaeOo/fit_forward_backend/public/storage/${item.exercise?.image}`}
                                                 alt={item.exercise?.name}
                                                 className="w-50"
                                             />

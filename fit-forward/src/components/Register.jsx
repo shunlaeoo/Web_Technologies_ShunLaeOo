@@ -30,12 +30,12 @@ function Register() {
         e.preventDefault();
         try {
             // Register user
-            await axios.post('http://127.0.0.1:8000/api/register', form, {
+            await axios.post('https://mi-linux.wlv.ac.uk/~2533234/public/api/register', form, {
               withCredentials: true,
             });
         
             // Auto login after register
-            const res = await axios.post('http://127.0.0.1:8000/api/login', {
+            const res = await axios.post('https://mi-linux.wlv.ac.uk/~2533234/public/api/login', {
               email: form.email,
               password: form.password,
             }, {
