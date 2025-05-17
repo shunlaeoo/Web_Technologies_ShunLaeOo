@@ -7,7 +7,7 @@ import App from './App.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter basename="/Web_Technologies_ShunLaeOo/fit-forward">
+    <BrowserRouter basename="/Web_Technologies_ShunLaeOo/">
       <App />
     </BrowserRouter>
   </React.StrictMode>
