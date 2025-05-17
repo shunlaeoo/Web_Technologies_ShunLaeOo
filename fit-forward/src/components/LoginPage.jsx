@@ -34,7 +34,7 @@ function LoginPage() {
 
         toast.success('Login successful! 🎉');
         navigate('/home'); // redirect after login
-      } catch (err) {
+      } catch (error) {
         setError('Invalid email or password');
         toast.error('Invalid email or password.');
       }

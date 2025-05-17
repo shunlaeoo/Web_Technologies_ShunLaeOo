@@ -12,33 +12,28 @@ use Illuminate\Support\Str;
 class UserFactory extends Factory
 {
     /**
-     * The current password being used by the factory.
-     */
-    protected static ?string $password;
-
-    /**
      * Define the model's default state.
      *
      * @return array<string, mixed>
      */
     public function definition(): array
     {
-        return [
-            'name' => fake()->name(),
-            'email' => fake()->unique()->safeEmail(),
-            'email_verified_at' => now(),
-            'password' => static::$password ??= Hash::make('password'),
-            'remember_token' => Str::random(10),
-        ];
-    }
+        $height = $this->faker->numberBetween(150, 200);
+        $weight = $this->faker->numberBetween(45, 120);
+        $heightInMeters = $height / 100;
+        $bmi = round($weight / ($heightInMeters * $heightInMeters), 2);
 
-    /**
-     * Indicate that the model's email address should be unverified.
-     */
-    public function unverified(): static
-    {
-        return $this->state(fn (array $attributes) => [
-            'email_verified_at' => null,
-        ]);
+        return [
+            'name' => $this->faker->name(),
+            'email' => $this->faker->unique()->safeEmail(),
+            // Remove email_verified_at
+            'password' => Hash::make('password'),
+            'age' => $this->faker->numberBetween(18, 65),
+            'gender' => $this->faker->numberBetween(1, 2), // 1 for male, 2 for female
+            'height' => $height,
+            'weight' => $weight,
+            'bmi' => $bmi,
+            'activity_level' => $this->faker->numberBetween(1, 5),
+        ];
     }
 }

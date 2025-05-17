@@ -74,24 +74,27 @@ function Register() {
                         {/* <h2 className="text-3xl primary text-center font-bold mb-6">FIT-FORWARD</h2> */}
 
                         <form onSubmit={handleSubmit} className="space-y-5">
-                            <label className="text-dark-600 font-bold">Full Name</label>
+                            <label className="text-dark-600 font-bold" htmlFor="name">Full Name</label>
                             <input name="name"
+                                id='name'
                                 type='text' 
                                 value={form.name} 
                                 onChange={handleChange} 
                                 placeholder="John Doe" 
                                 className="w-full text-sm px-4 py-2 mt-1 mb-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-red-300" />
                             
-                            <label className="text-dark-600 font-bold">Email</label>
-                            <input name="email" 
+                            <label className="text-dark-600 font-bold" htmlFor="email">Email</label>
+                            <input name="email"
+                                id='email'
                                 value={form.email} 
                                 onChange={handleChange} 
                                 type="email" 
                                 placeholder="example@gmail.com" 
                                 className="w-full text-sm px-4 py-2 mt-1 mb-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-red-300" />
                             
-                            <label className="text-dark-600 font-bold">Password</label>
-                            <input name="password" 
+                            <label className="text-dark-600 font-bold" htmlFor="password">Password</label>
+                            <input name="password"
+                                id='password'
                                 value={form.password} 
                                 onChange={handleChange} 
                                 type="password" 
@@ -99,12 +102,13 @@ function Register() {
                                 className="w-full text-sm px-4 py-2 mt-1 mb-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-red-300" />
                             
                             <div className='flex gap-x-3 my-0'>
-                                <label className="w-1/2 text-dark-600 font-bold">Age</label>
-                                <label className="w-1/2 text-dark-600 font-bold">Gender</label>
+                                <label className="w-1/2 text-dark-600 font-bold" htmlFor="age">Age</label>
+                                <label className="w-1/2 text-dark-600 font-bold" htmlFor="gender">Gender</label>
                             </div>
 
                             <div className='flex gap-x-3 mb-3'>
-                                <input name="age"  
+                                <input name="age"
+                                    id='age'
                                     onChange={handleChange} 
                                     value={form.age}
                                     type="number" 
@@ -113,6 +117,7 @@ function Register() {
                                     className="w-1/2 text-sm px-4 py-2 mt-1 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-red-300" />
                                 
                                 <select name="gender" 
+                                    id='gender'
                                     value={form.gender}
                                     onChange={handleChange} 
                                     className="w-1/2 text-sm px-4 py-2 mt-1 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-red-300">
@@ -123,12 +128,13 @@ function Register() {
                             </div>
 
                             <div className='flex gap-x-3 my-0'>
-                                <label className="w-1/2 text-dark-600 font-bold">Height</label>
-                                <label className="w-1/2 text-dark-600 font-bold">Weight</label>
+                                <label className="w-1/2 text-dark-600 font-bold" htmlFor="height">Height</label>
+                                <label className="w-1/2 text-dark-600 font-bold" htmlFor="weight">Weight</label>
                             </div>
 
                             <div className='flex gap-x-3 mb-3'>
                                 <input name="height" 
+                                    id='height'
                                     value={form.height}
                                     onChange={handleChange} 
                                     type="number" 
@@ -136,6 +142,7 @@ function Register() {
                                     min="1" 
                                     className="w-1/2 text-sm px-4 py-2 mt-1 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-red-300" />
                                 <input name="weight" 
+                                    id='weight'
                                     value={form.weight}
                                     onChange={handleChange} 
                                     type="number" 
@@ -144,8 +151,9 @@ function Register() {
                                     className="w-1/2 text-sm px-4 py-2 mt-1 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-red-300" />
                             </div>
 
-                            <label className="w-1/2 text-dark-600 font-bold">Activity Level</label>
+                            <label className="w-1/2 text-dark-600 font-bold" htmlFor="activity_level">Activity Level</label>
                             <select name="activity_level" 
+                                id='activity_level'
                                 value={form.activity_level}
                                 onChange={handleChange} 
                                 className="w-full text-sm px-4 py-2 mt-1 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-red-300">
