@@ -1,4 +1,5 @@
 import Header from './Header';
+import { toast } from 'react-toastify';
 import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
@@ -10,6 +11,7 @@ function Profile() {
 
     useEffect(() => {
         const fetchProgressData = async () => {
+            const loadingToast = toast.loading('Fetching your workout progress...');
             const token = localStorage.getItem('token');
         
             try {
@@ -21,11 +23,23 @@ function Profile() {
                 });
         
                 setProgressData(res.data);
+                toast.update(loadingToast, {
+                    render: 'Workout progress loaded!',
+                    type: 'success',
+                    isLoading: false,
+                    autoClose: 2000
+                });
             } catch (error) {
                 console.error('Error fetching progress data:', error);
+                toast.update(loadingToast, {
+                    render: 'Failed to load progress.',
+                    type: 'error',
+                    isLoading: false,
+                    autoClose: 2000
+                });
             }
         };
-        fetchProgressData();
+        setTimeout(fetchProgressData, 100);
     }, []);
       
     return(
